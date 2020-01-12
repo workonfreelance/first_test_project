@@ -1,4 +1,3 @@
-
 $(document).ready(function () {actions();});
 window.onscroll = function () {myFunction()};
 

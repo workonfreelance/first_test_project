@@ -20,7 +20,7 @@ app_name = 'first_app_url'
 
 urlpatterns = [
     path('', IndexHTML, name="startHTML"),
+    path('select_jobs', select_jobs_for_tags, name="select_jobs"),
     # path('job/<int:index>', datails_job, name="datails_job"),
-    # path('success', save_user_data, name="save_user_data"),
 
 ]

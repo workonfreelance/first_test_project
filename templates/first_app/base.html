@@ -175,7 +175,16 @@
                                         <h2 class="mr-2 text-color-grey">Details</h2>
                                     </div>
                                 </div>
-                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Nodejs" name="job"
+
+                                {% for job in jobs %}
+                                    <tr class="{% cycle rowvalue1 rowvalue2 %}">
+                                    </tr>
+                                {% endfor %}
+
+
+
+                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Nodejs"
+                                     name="job"
                                      style="display: none">
                                     <div class="col-md-4">
                                         <header class="box-item_header">
@@ -203,7 +212,8 @@
                                         <a href="/job/1" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>
                                     </div>
                                 </div>
-                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Java" name="job">
+                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Java"
+                                     name="job">
                                     <div class="col-md-4">
                                         <header class="box-item_header">
                                             <h3 class="box-item-title">
@@ -230,7 +240,8 @@
                                         <a href="/job/2" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>
                                     </div>
                                 </div>
-                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Designer" name="job">
+                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Designer"
+                                     name="job">
                                     <div class="col-md-4">
                                         <header class="box-item_header">
                                             <h3 class="box-item-title">
@@ -421,8 +432,6 @@
                         :)</p>
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -446,7 +455,7 @@
 
                 <div id="modal-wrapper" class="modal">
 
-                    <form class="modal-content animate"  method="post"
+                    <form class="modal-content animate" method="post"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close"
@@ -471,24 +480,7 @@
 <footer class="footer-top">
     <div class="container">
         <div class="row">
-            {#            <div class="col-md-4 col-sm6 col-xs-12 segment-one md-mb-30 sm-mb-30">#}
-            {#                <img src="{% static "images/logo-blue.jpg" %}" alt="site logo">#}
-            {#            </div>#}
-            {#             <div class="col-md-4 col-sm6 col-xs-12 segment-two md-mb-30 sm-mb-30">#}
-            {#                 <h2>Uppeople Lviv</h2>#}
-            {#               <ul>#}
-            {#                   <li><a href="#">Privacy Police</a></li>#}
-            {#                   <li><a href="#">Cookie Police</a></li>#}
-            {#               </ul>#}
-            {#            </div>#}
-            {#            <div class="col-md-4 col-sm6 col-xs-12 segment-three md-mb-30 sm-mb-30">#}
-            {#                <h2>Follow Us</h2>#}
-            {#                <p>please Follow us on our Social Media Profile in order ro keep updated.</p>#}
-            {#                <a href="#"><i class="fa fa-facebook"></i></a>#}
-            {#                <a href="#"><i class="fa fa-twitter"></i></a>#}
-            {#                <a href="#"><i class="fa fa-linkedin"></i></a>#}
-            {#                <a href="#"><i class="fa fa-instagram"></i></a>#}
-            {#            </div>#}
+
         </div>
     </div>
     <p class="footer-bottom-text">All Right reserved by &copy; Uppeople Lviv</p>
@@ -497,15 +489,9 @@
 
 <script src="{% static "script/preloader.js" %}"></script>
 <script src="{% static "script/wow.min.js" %}"></script>
-<script src="{% static "script/script.js" %}"></script>
+{#<script src="{% static "script/script.js" %}"></script>#}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script>
-    {% for chk in filter %}
-        $("[value = {{ chk }}]").prop("checked", true);
-    {% endfor %}
-</script>
-<script>filter();</script>
 
 </body>
 </html>

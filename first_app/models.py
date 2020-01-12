@@ -19,7 +19,7 @@ class Job(models.Model):
     loacation = models.TextField(max_length=50,verbose_name="Местонахождение")
     hot = models.BooleanField(default=False,verbose_name="Hot")
     body = models.TextField(default="",verbose_name="Описание")
-
+    link = models.TextField(unique=True,max_length=15,verbose_name="Сылка")
     class Meta:
         ordering = ('hot',)
 
