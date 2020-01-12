@@ -6,10 +6,17 @@ from first_app.models import Job, Tag
 
 def IndexHTML(request):
     filter = []
+    print(request.GET)
     for i in request.GET:
+        if i == "filter":
+            continue
         filter.append(i)
-    tags = Tag.objects.filter(name__in=filter)
-    jobs = Job.objects.filter(tags__in=tags)
+
+    if len(filter)>0:
+        tags = Tag.objects.filter(name__in=filter)
+        jobs = Job.objects.filter(tags__in=tags)
+    else:
+        jobs = Job.objects.all()
     return render(request, 'first_app/base.html', {"jobs": jobs})
 
 
