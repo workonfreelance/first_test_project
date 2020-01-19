@@ -178,123 +178,125 @@
 
                                 {% for job in jobs %}
 
-                                    <div class="job-post-item  d-md-flex align-items-center text-left" tags="{{ job.tags }}"
+                                    <div class="job-post-item  d-md-flex align-items-center text-left"
+                                         tags="{{ job.tags }}"
                                          name="job"
                                          style="display: none">
                                         <div class="col-md-4">
                                             <header class="box-item_header">
                                                 <h3 class="box-item-title">
-                                                    <a href="{{job.link}}" class="box-item-title-link job-details">{{job.short_job_name}}</a>
+                                                    <a href="{{ job.link }}"
+                                                       class="box-item-title-link job-details">{{ job.short_job_name }}</a>
                                                 </h3>
-                                                <div class="hot">
-                                                    <div class="hot__bg" style="background-color: #e06287"></div>
-                                                    <span class="hot__text" style="color: #e06287">Hot-{{ job.hot }}</span>
-                                                </div>
+                                                {% if job == source %}
+                                                    <div class="hot">
+                                                        <div class="hot__bg" style="background-color: #e06287"></div>
+                                                        <span class="hot__text"
+                                                              style="color: #e06287">Hot-{{ job.hot }}</span>
+                                                    </div>
+                                                {% endif %}
+
                                             </header>
                                         </div>
                                         <div class="col-md-2">
-                                            <h2 class="mr-2 text-color job-location">{{job.loacation}}</h2>
+                                            <h2 class="mr-2 text-color job-location">{{ job.loacation }}</h2>
                                         </div>
                                         <div class="col-md-3 box">
                                             <div class="icon">
-
-
-                                                <span class="mr-2">{% for tag in job.tags.all %}{{ tag.name }}<br/>{% endfor %}</span>
-{#                                                <img src="{% static "images/nodejs.png" %}" class="technology-icon"#}
-{#                                                     alt="nodejs icon">#}
-
-
+                                                <span class="mr-2">{% for tag in job.tags.all %}{{ tag.name }}
+                                                    <br/>{% endfor %}</span>
+                                                {#                                                <img src="{% static "images/nodejs.png" %}" class="technology-icon"#}
+                                                {#                                                     alt="nodejs icon">#}
                                             </div>
-
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="{{job.link}}"
+                                            <a href="{{ job.link }}"
                                                class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>
                                         </div>
                                     </div>
                                 {% endfor %}
 
 
-{##}
-{#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Nodejs"#}
-{#                                     name="job"#}
-{#                                     style="display: none">#}
-{#                                    <div class="col-md-4">#}
-{#                                        <header class="box-item_header">#}
-{#                                            <h3 class="box-item-title">#}
-{#                                                <a href="/job/1" class="box-item-title-link job-details">Nodejs</a>#}
-{#                                            </h3>#}
-{#                                            <div class="hot">#}
-{#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
-{#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
-{#                                            </div>#}
-{#                                        </header>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-2">#}
-{#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-3 box">#}
-{#                                        <div class="icon">#}
-{#                                            <span class="mr-2">Nodejs</span>#}
-{#                                            <img src="{% static "images/nodejs.png" %}" class="technology-icon"#}
-{#                                                 alt="nodejs icon">#}
-{#                                        </div>#}
-{##}
-{#                                    </div>#}
-{#                                    <div class="col-md-4">#}
-{#                                        <a href="/job/1" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Java"#}
-{#                                     name="job">#}
-{#                                    <div class="col-md-4">#}
-{#                                        <header class="box-item_header">#}
-{#                                            <h3 class="box-item-title">#}
-{#                                                <a href="/job/2" class="box-item-title-link job-details">Java</a>#}
-{#                                            </h3>#}
-{#                                            <div class="hot">#}
-{#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
-{#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
-{#                                            </div>#}
-{#                                        </header>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-2">#}
-{#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-3 box">#}
-{#                                        <div class="icon">#}
-{#                                            <span class="mr-2">Java</span>#}
-{#                                            <img src="{% static "images/java-1.png" %}" class="technology-icon-java"#}
-{#                                                 alt="java icon">#}
-{#                                        </div>#}
-{##}
-{#                                    </div>#}
-{#                                    <div class="col-md-4">#}
-{#                                        <a href="/job/2" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Designer"#}
-{#                                     name="job">#}
-{#                                    <div class="col-md-4">#}
-{#                                        <header class="box-item_header">#}
-{#                                            <h3 class="box-item-title">#}
-{#                                                <a href="/job/3" class="box-item-title-link job-details">2d Animator</a>#}
-{#                                            </h3>#}
-{#                                            <div class="hot">#}
-{#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
-{#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
-{#                                            </div>#}
-{#                                        </header>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-2">#}
-{#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
-{#                                    </div>#}
-{#                                    <div class="col-md-3">#}
-{#                                    </div>#}
-{#                                    <div class="col-md-4">#}
-{#                                        <a href="/job/3" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
-{#                                    </div>#}
-{#                                </div>#}
+                                {##}
+                                {#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Nodejs"#}
+                                {#                                     name="job"#}
+                                {#                                     style="display: none">#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <header class="box-item_header">#}
+                                {#                                            <h3 class="box-item-title">#}
+                                {#                                                <a href="/job/1" class="box-item-title-link job-details">Nodejs</a>#}
+                                {#                                            </h3>#}
+                                {#                                            <div class="hot">#}
+                                {#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
+                                {#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
+                                {#                                            </div>#}
+                                {#                                        </header>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-2">#}
+                                {#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-3 box">#}
+                                {#                                        <div class="icon">#}
+                                {#                                            <span class="mr-2">Nodejs</span>#}
+                                {#                                            <img src="{% static "images/nodejs.png" %}" class="technology-icon"#}
+                                {#                                                 alt="nodejs icon">#}
+                                {#                                        </div>#}
+                                {##}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <a href="/job/1" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Java"#}
+                                {#                                     name="job">#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <header class="box-item_header">#}
+                                {#                                            <h3 class="box-item-title">#}
+                                {#                                                <a href="/job/2" class="box-item-title-link job-details">Java</a>#}
+                                {#                                            </h3>#}
+                                {#                                            <div class="hot">#}
+                                {#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
+                                {#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
+                                {#                                            </div>#}
+                                {#                                        </header>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-2">#}
+                                {#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-3 box">#}
+                                {#                                        <div class="icon">#}
+                                {#                                            <span class="mr-2">Java</span>#}
+                                {#                                            <img src="{% static "images/java-1.png" %}" class="technology-icon-java"#}
+                                {#                                                 alt="java icon">#}
+                                {#                                        </div>#}
+                                {##}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <a href="/job/2" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                <div class="job-post-item  d-md-flex align-items-center text-left" tags="Designer"#}
+                                {#                                     name="job">#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <header class="box-item_header">#}
+                                {#                                            <h3 class="box-item-title">#}
+                                {#                                                <a href="/job/3" class="box-item-title-link job-details">2d Animator</a>#}
+                                {#                                            </h3>#}
+                                {#                                            <div class="hot">#}
+                                {#                                                <div class="hot__bg" style="background-color: #e06287"></div>#}
+                                {#                                                <span class="hot__text" style="color: #e06287">Hot</span>#}
+                                {#                                            </div>#}
+                                {#                                        </header>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-2">#}
+                                {#                                        <h2 class="mr-2 text-color job-location">Кyiv</h2>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-3">#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col-md-4">#}
+                                {#                                        <a href="/job/3" class="btn-3 mr-2 box-item-title-link job-details details-btn">Details</a>#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
 
                             </div>
 

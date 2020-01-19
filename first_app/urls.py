@@ -19,6 +19,7 @@ from first_app.views import *
 app_name = 'first_app_url'
 
 urlpatterns = [
+    path('', temp, name="temp"),
     path('', IndexHTML, name="startHTML"),
     path('select_jobs', select_jobs_for_tags, name="select_jobs"),
     # path('job/<int:index>', datails_job, name="datails_job"),

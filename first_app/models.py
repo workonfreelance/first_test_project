@@ -20,6 +20,10 @@ class Job(models.Model):
     hot = models.BooleanField(default=False,verbose_name="Hot")
     body = models.TextField(default="",verbose_name="Описание")
     link = models.TextField(unique=True,max_length=15,verbose_name="Сылка")
+
+    def __str__(self):
+        return self.short_job_name
+
     class Meta:
         ordering = ('hot',)
 
